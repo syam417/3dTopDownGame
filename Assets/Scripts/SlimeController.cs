@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class SlimeController : MonoBehaviour
 {
@@ -31,12 +30,19 @@ public class SlimeController : MonoBehaviour
         {
             Vector3 direction = player.position - transform.position;
 
-            // Hanya bergerak jika jarak dengan pemain lebih besar dari stoppingDistance
-            if (direction.magnitude > stoppingDistance)
+            // Jarak antara slime dan pemain
+            float distanceToPlayer = direction.magnitude;
+
+            // Berhenti jika sudah dalam jarak tertentu dengan pemain
+            if (distanceToPlayer <= stoppingDistance)
             {
-                transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
-                transform.LookAt(player);
+                isJumping = false;
+                return;
             }
+
+            // Bergerak menuju pemain
+            transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+            transform.LookAt(player);
         }
     }
 
