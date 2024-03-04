@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
             jumping = true;
         }
 
-        
+    
     }
 
     void FixedUpdate(){
