@@ -18,6 +18,8 @@ public class BulletController : MonoBehaviour
 
             // Hancurkan peluru setelah menabrak
             Destroy(gameObject);
+
+            
         }
     }
 }
